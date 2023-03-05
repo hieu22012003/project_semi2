@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
-class WebController
-{
+use Illuminate\Http\Request;
 
+class WebController extends Controller
+{
+    public function admin(){
+        return view("admin");
+    }
 }
