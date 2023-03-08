@@ -8,12 +8,12 @@ Route::get("/admin",[App\Http\Controllers\WebController::class,"admin"]);
 // hoa don
 Route::group(['prefix'=>"ve"],function (){
 
-    Route::get("/list",[\App\Http\Controllers\HoadonController::class,"all"]);
-    Route::get("/create",[\App\Http\Controllers\HoadonController::class,"form"]);
-    Route::post("/create",[\App\Http\Controllers\HoadonController::class,"create"]);
-    Route::get("/edit/{id}",[\App\Http\Controllers\HoadonController::class,"edit"]);
-    Route::put("/edit/{id}",[\App\Http\Controllers\HoadonController::class,"update"]);
-    Route::delete("/delete/{id}",[\App\Http\Controllers\HoadonController::class,"delete"]);
+    Route::get("/list",[\App\Http\Controllers\VeController::class,"all"]);
+    Route::get("/create",[\App\Http\Controllers\VeController::class,"form"]);
+    Route::post("/create",[\App\Http\Controllers\VeController::class,"create"]);
+    Route::get("/edit/{id}",[\App\Http\Controllers\VeController::class,"edit"]);
+    Route::put("/edit/{id}",[\App\Http\Controllers\VeController::class,"update"]);
+    Route::delete("/delete/{id}",[\App\Http\Controllers\VeController::class,"delete"]);
 });
 // users
 
@@ -31,52 +31,52 @@ Route::group(['prefix'=>"users"],function (){
 
 Route::group(['prefix'=>"lienhe"],function (){
 
-    Route::get("/list",[\App\Http\Controllers\LienheController::class,"all"]);
-    Route::get("/create",[\App\Http\Controllers\LienheController::class,"form"]);
-    Route::post("/create",[\App\Http\Controllers\LienheController::class,"create"]);
-    Route::get("/edit/{id}",[\App\Http\Controllers\LienheController::class,"edit"]);
-    Route::put("/edit/{id}",[\App\Http\Controllers\LienheController::class,"update"]);
-    Route::delete("/delete/{id}",[\App\Http\Controllers\LienheController::class,"delete"]);
+    Route::get("/list",[\App\Http\Controllers\LienHeController::class,"all"]);
+    Route::get("/create",[\App\Http\Controllers\LienHeController::class,"form"]);
+    Route::post("/create",[\App\Http\Controllers\LienHeController::class,"create"]);
+    Route::get("/edit/{id}",[\App\Http\Controllers\LienHeController::class,"edit"]);
+    Route::put("/edit/{id}",[\App\Http\Controllers\LienHeController::class,"update"]);
+    Route::delete("/delete/{id}",[\App\Http\Controllers\LienHeController::class,"delete"]);
 });
 
 // chamsockhachhang
 
 Route::group(['prefix'=>"chamsockhachhang"],function (){
 
-    Route::get("/list",[\App\Http\Controllers\ChamsockhachhangController::class,"all"]);
-    Route::get("/create",[\App\Http\Controllers\ChamsockhachhangController::class,"form"]);
-    Route::post("/create",[\App\Http\Controllers\ChamsockhachhangController::class,"create"]);
-    Route::get("/edit/{iduser}",[\App\Http\Controllers\ChamsockhachhangController::class,"edit"]);
-    Route::put("/edit/{iduser}",[\App\Http\Controllers\ChamsockhachhangController::class,"update"]);
-    Route::delete("/delete/{iduser}",[\App\Http\Controllers\ChamsockhachhangController::class,"delete"]);
+    Route::get("/list",[\App\Http\Controllers\ChamSocKhachHangController::class,"all"]);
+    Route::get("/create",[\App\Http\Controllers\ChamSocKhachHangController::class,"form"]);
+    Route::post("/create",[\App\Http\Controllers\ChamSocKhachHangController::class,"create"]);
+    Route::get("/edit/{iduser}",[\App\Http\Controllers\ChamSocKhachHangController::class,"edit"]);
+    Route::put("/edit/{iduser}",[\App\Http\Controllers\ChamSocKhachHangController::class,"update"]);
+    Route::delete("/delete/{iduser}",[\App\Http\Controllers\ChamSocKhachHangController::class,"delete"]);
 });
 
 //maybay
 Route::group(['prefix'=>"maybay"],function (){
-    Route::get("/list",[\App\Http\Controllers\MaybayController::class,"all"]);
-    Route::get("/create",[\App\Http\Controllers\MaybayController::class,"form"]);
-    Route::post("/create",[\App\Http\Controllers\MaybayController::class,"create"]);
-    Route::get("/edit/{id}",[\App\Http\Controllers\MaybayController::class,"edit"]);
-    Route::put("/edit/{id}",[\App\Http\Controllers\MaybayController::class,"update"]);
-    Route::delete("/delete/{id}",[\App\Http\Controllers\MaybayController::class,"delete"]);
+    Route::get("/list",[\App\Http\Controllers\MayBayController::class,"all"]);
+    Route::get("/create",[\App\Http\Controllers\MayBayController::class,"form"]);
+    Route::post("/create",[\App\Http\Controllers\MayBayController::class,"create"]);
+    Route::get("/edit/{id}",[\App\Http\Controllers\MayBayController::class,"edit"]);
+    Route::put("/edit/{id}",[\App\Http\Controllers\MayBayController::class,"update"]);
+    Route::delete("/delete/{id}",[\App\Http\Controllers\MayBayController::class,"delete"]);
 });
 //chuyenbay
 Route::group(['prefix'=>"chuyenbay"],function (){
-    Route::get("/list",[\App\Http\Controllers\ChuyenbayController::class,"all"]);
-    Route::get("/create",[\App\Http\Controllers\ChuyenbayController::class,"form"]);
-    Route::post("/create",[\App\Http\Controllers\ChuyenbayController::class,"create"]);
-    Route::get("/edit/{id}",[\App\Http\Controllers\ChuyenbayController::class,"edit"]);
-    Route::put("/edit/{id}",[\App\Http\Controllers\ChuyenbayController::class,"update"]);
-    Route::delete("/delete/{id}",[\App\Http\Controllers\ChuyenbayController::class,"delete"]);
+    Route::get("/list",[\App\Http\Controllers\ChuyenBayController::class,"all"]);
+    Route::get("/create",[\App\Http\Controllers\ChuyenBayController::class,"form"]);
+    Route::post("/create",[\App\Http\Controllers\ChuyenBayController::class,"create"]);
+    Route::get("/edit/{id}",[\App\Http\Controllers\ChuyenBayController::class,"edit"]);
+    Route::put("/edit/{id}",[\App\Http\Controllers\ChuyenBayController::class,"update"]);
+    Route::delete("/delete/{id}",[\App\Http\Controllers\ChuyenBayController::class,"delete"]);
 });
 
 
 //sanbay
 Route::group(['prefix'=>"sanbay"],function (){
-    Route::get("/list",[\App\Http\Controllers\SanbayController::class,"all"]);
-    Route::get("/create",[\App\Http\Controllers\SanbayController::class,"form"]);
-    Route::post("/create",[\App\Http\Controllers\SanbayController::class,"create"]);
-    Route::get("/edit/{idsanbay}",[\App\Http\Controllers\SanbayController::class,"edit"]);
-    Route::put("/edit/{idsanbay}",[\App\Http\Controllers\SanbayController::class,"update"]);
-    Route::delete("/delete/{idsanbay}",[\App\Http\Controllers\SanbayController::class,"delete"]);
+    Route::get("/list",[\App\Http\Controllers\SanBayController::class,"all"]);
+    Route::get("/create",[\App\Http\Controllers\SanBayController::class,"form"]);
+    Route::post("/create",[\App\Http\Controllers\SanBayController::class,"create"]);
+    Route::get("/edit/{idsanbay}",[\App\Http\Controllers\SanBayController::class,"edit"]);
+    Route::put("/edit/{idsanbay}",[\App\Http\Controllers\SanBayController::class,"update"]);
+    Route::delete("/delete/{idsanbay}",[\App\Http\Controllers\SanBayController::class,"delete"]);
 });
