@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ChamSocKhachHang;
+use App\Models\cskh;
 use App\Models\LienHe;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,18 +11,18 @@ class ChamSocKhachHangController  extends Controller
     public function all(Request  $request){
         $paraUSER = $request->get("iduser");
         $paraLIENHE = $request->get("idlienhe");
-        $chamsockhachhang= ChamSocKhachHang::IDUSER($paraUSER)->IDLIENHE($paraLIENHE)->simplePaginate(10);
-        return view ("admin.chamsockhachhang.list-chamsockhachhang",[
-            "chamsockhachhang"=>$chamsockhachhang,
+        $cskh= chamsockhachhang::IDUSER($paraUSER)->IDLIENHE($paraLIENHE)->simplePaginate(10);
+        return view ("admin.cskh.list-cskh",[
+            "chamsockhachhang"=>$cskh,
 
         ]);
     }
     public function form(){
         $users = User::all();
         $lienhe = LienHe::all();
-        $chamsockhachhang = ChamSocKhachHang::all();
-        return view("admin.chamsockhachhang.add-chamsockhachhang",[
-            "chamsockhachhang"=>$chamsockhachhang,
+        $cskh = chamsockhachhangh::all();
+        return view("admin.cskh.add-cskh",[
+            "chamsockhachhang"=>$cskh,
             "users"=>$users,
             "lienhe"=>$lienhe
         ]);
@@ -35,21 +35,21 @@ class ChamSocKhachHangController  extends Controller
         ],[
             'required'=>"Vui lòng nhập thông tin"
         ]);
-        ChamSocKhachHang::create([
+        chamsockhachhang::create([
             "iduser"=>$request->get("iduser"),
             "idlienhe"=>$request->get("idlienhe"),
         ]);
         return redirect()->to("/chamsockhachhang/list");
     }
     public function edit($iduser){
-        $chamsockhachhang = ChamSocKhachHang::find($iduser);
-        return view('admin.chamsockhachhang.edit-chamsockhachhang',[
-            'chamsockhachhang'=> $chamsockhachhang
+        $cskh = chamsockhachhang::find($iduser);
+        return view('admin.cskh.edit-cskh',[
+            'chamsockhachhang'=> $cskh
         ]);
     }
     public function update(Request $request, $iduser ){
-        $chamsockhachhang = ChamSocKhachHang::find($iduser);
-        $chamsockhachhang -> update([
+        $cskh = chamsockhachhang::find($iduser);
+        $cskh -> update([
             "iduser"=>$request->get("iduser"),
             "idlienhe"=>$request->get("idlienhe"),
         ]);
@@ -58,8 +58,8 @@ class ChamSocKhachHangController  extends Controller
 
     public function delete($iduser){
         try {
-            $chamsockhachhang = ChamSocKhachHang::find($iduser);
-            $chamsockhachhang->delete();
+            $cskh = chamsockhachhang::find($iduser);
+            $cskh->delete();
             return redirect()->to("/chamsockhachhang/list")->with("success","Xóa thành công");
         }catch (\Exception $e){
             return redirect()->back()->with("error","Không thể xóa");

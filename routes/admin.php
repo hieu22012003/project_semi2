@@ -39,9 +39,9 @@ Route::group(['prefix'=>"lienhe"],function (){
     Route::delete("/delete/{id}",[\App\Http\Controllers\LienHeController::class,"delete"]);
 });
 
-// chamsockhachhang
+// cskh
 
-Route::group(['prefix'=>"chamsockhachhang"],function (){
+Route::group(['prefix'=>"cskh"],function (){
 
     Route::get("/list",[\App\Http\Controllers\ChamSocKhachHangController::class,"all"]);
     Route::get("/create",[\App\Http\Controllers\ChamSocKhachHangController::class,"form"]);

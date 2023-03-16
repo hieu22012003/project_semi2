@@ -49,13 +49,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($chamsockhachhang as $item)
+                                @foreach($cskh as $item)
                                     <tr>
                                         <td>{{$item->iduser}}</td>
                                         <td>{{$item->idlienhe}}</td>
-                                        {{--                                        <td><a href="{{url("/chamsockhachhang/edit",['iduser'=>$item->iduser])}}" class="btn btn-outline-info">+</a></td>--}}
+                                        {{--                                        <td><a href="{{url("/cskh/edit",['iduser'=>$item->iduser])}}" class="btn btn-outline-info">+</a></td>--}}
                                         {{--                                        <td>--}}
-                                        {{--                                            <form action="{{url("/chamsockhachhang/delete",['iduser'=>$item->iduser])}}" method="post">--}}
+                                        {{--                                            <form action="{{url("/cskh/delete",['iduser'=>$item->iduser])}}" method="post">--}}
                                         {{--                                                @csrf--}}
                                         {{--                                                @method("delete")--}}
                                         {{--                                                <button type="submit" onclick="return confirm('Xóa Hóa Đơn {{$item->iduser}} ?')" class="btn btn-outline-danger">-</button>--}}
@@ -71,6 +71,6 @@
             </div>
         </div>
     </section>
-    {!! $chamsockhachhang-> appends(app("request")->input())-> links() !!}
+    {!! $cskh-> appends(app("request")->input())-> links() !!}
     </div>
 @endsection

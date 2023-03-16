@@ -25,17 +25,17 @@
                 <div class="card-header">
                     <h3 class="card-title">Sửa </h3>
                 </div>
-                <form role="form" method="post" action="{{url("/chamsockhachhang/edit",['chamsockhachhang'=>$chamsockhachhang->iduser])}}">
+                <form role="form" method="post" action="{{url("/cskh/edit",['cskh'=>$cskh->iduser])}}">
                     @csrf
                     @method("put")
                     <div class="card-body">
                         <div class="form-group">
                             <label for="">ID User</label>
-                            <input disabled type="text" class="form-control" name="iduser" id="iduser" value="{{$chamsockhachhang->iduser}}" placeholder="ID User">
+                            <input disabled type="text" class="form-control" name="iduser" id="iduser" value="{{$cskh->iduser}}" placeholder="ID User">
                         </div>
                         <div class="form-group">
                             <label for="">ID Liên hệ</label>
-                            <input type="text" class="form-control" name="idlienhe" id="idlienhe"  value="{{$chamsockhachhang->idlienhe}}" placeholder="ID Liên hệ">
+                            <input type="text" class="form-control" name="idlienhe" id="idlienhe"  value="{{$cskh->idlienhe}}" placeholder="ID Liên hệ">
                         </div>
                     </div>
                     <div class="card-footer">
