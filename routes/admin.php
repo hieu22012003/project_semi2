@@ -41,7 +41,8 @@ Route::group(['prefix'=>"lienhe"],function (){
 
 // cskh
 
-Route::group(['prefix'=>"cskh"],function (){
+
+Route::group(['prefix'=>"chamsockhachhang"],function (){
 
     Route::get("/list",[\App\Http\Controllers\ChamSocKhachHangController::class,"all"]);
     Route::get("/create",[\App\Http\Controllers\ChamSocKhachHangController::class,"form"]);

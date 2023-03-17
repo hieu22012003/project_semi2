@@ -47,7 +47,7 @@ FROM `chuyenbay` cb
 left JOIN maybay mb on mb.idmaybay = cb.idmaybay
 left JOIN (
     SELECT cb.idchuyenbay, SUM(hd.ghethuong) as `ghethuongUsed`, SUM(hd.ghevip) as `ghevipUsed` FROM `chuyenbay` cb
-    left JOIN hoadon hd on hd.idchuyenbay = cb.idchuyenbay
+    left JOIN ve hd on hd.idchuyenbay = cb.idchuyenbay
     WHERE hd.trangthai LIKE 'DONE'
     GROUP BY cb.idchuyenbay
 ) `temp` on `temp`.idchuyenbay = cb.idchuyenbay

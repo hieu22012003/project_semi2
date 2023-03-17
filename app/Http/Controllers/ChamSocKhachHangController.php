@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\cskh;
+use App\Models\ChamSocKhachHang;
 use App\Models\LienHe;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,17 +11,17 @@ class ChamSocKhachHangController  extends Controller
     public function all(Request  $request){
         $paraUSER = $request->get("iduser");
         $paraLIENHE = $request->get("idlienhe");
-        $cskh= chamsockhachhang::IDUSER($paraUSER)->IDLIENHE($paraLIENHE)->simplePaginate(10);
-        return view ("admin.cskh.list-cskh",[
-            "chamsockhachhang"=>$cskh,
+        $cskh= ChamSocKhachHang::IDUSER($paraUSER)->IDLIENHE($paraLIENHE)->simplePaginate(10);
+        return view ("admin.chamsockhachhang.list-chamsockhachhang",[
+            "cskh"=>$cskh,
 
         ]);
     }
     public function form(){
         $users = User::all();
         $lienhe = LienHe::all();
-        $cskh = chamsockhachhangh::all();
-        return view("admin.cskh.add-cskh",[
+        $cskh = chamsockhachhang::all();
+        return view("admin.chamsockhachhang.add-chamsockhachhang",[
             "chamsockhachhang"=>$cskh,
             "users"=>$users,
             "lienhe"=>$lienhe
