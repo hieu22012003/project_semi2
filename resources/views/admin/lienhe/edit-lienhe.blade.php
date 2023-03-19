@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Số điện thoại</label>
-                            <input type="text" class="form-control" name="sdt" id="sdt"  value="{{$lienhe->sdt}}" placeholder="Số điện thoại">
+                            <input type="number" class="form-control" name="sdt" id="sdt"  value="{{$lienhe->sdt}}" placeholder="Số điện thoại">
                         </div>
                         <div class="form-group">
                             <label for="">Nội dung</label>

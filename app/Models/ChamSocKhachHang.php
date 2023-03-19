@@ -9,14 +9,14 @@ class ChamSocKhachHang extends Model
     use HasFactory;
     protected $table = 'cskh' ;
     protected $fillable = [
-        "iduser",
+        "userid",
         "idlienhe",
         "created_at",
         "updated_at"
     ];
-    public  function  scopeIDUSER($query,$IDUSER=''){
-        if($IDUSER != null && $IDUSER != ''){
-            return $query->where("iduser","like","%".$IDUSER."%");
+    public  function  scopeuserid($query,$userid=''){
+        if($userid != null && $userid != ''){
+            return $query->where("useridr","like","%".$userid."%");
         }
         return $query;
     }
@@ -27,7 +27,7 @@ class ChamSocKhachHang extends Model
         return $query;
     }
     public function users(){
-        return $this->belongsTo(User::class,'iduser','id');
+        return $this->belongsTo(User::class,'userid','id');
     }
 
     public function lienhe(){

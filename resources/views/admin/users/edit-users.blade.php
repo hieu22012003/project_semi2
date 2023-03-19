@@ -58,7 +58,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Số điện thoại</label>
-                            <input type="text" class="form-control" name="sdt" id="sdt"  value="{{$users->sdt}}" placeholder="Số điện thoại">
+                            <input type="number" class="form-control" name="sdt" id="sdt"  value="{{$users->sdt}}" placeholder="Số điện thoại">
                         </div>
                         <div class="form-group">
                             <label for="">Địa chỉ</label>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Dặm bay</label>
-                            <input type="text" class="form-control" name="dambay" id="dambay" value="{{$users->dambay}}" placeholder="Dặm bay">
+                            <input type="number" class="form-control" name="dambay" id="dambay" value="{{$users->dambay}}" placeholder="Dặm bay">
                         </div>
                     </div>
                     <div class="card-footer">

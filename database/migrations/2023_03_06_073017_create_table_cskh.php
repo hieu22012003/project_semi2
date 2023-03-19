@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cskh', function (Blueprint $table) {
-            $table -> string("userid")->primary();
-            $table -> string("idlienhe",255);
+            $table->id();
+            $table->foreignId('userid')->constrained('users')->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('idlienhe')->constrained('lienhe')->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
-            $table->foreign("userid")->references("userid")->on("users");
-            $table->foreign("idlienhe")->references("idlienhe")->on("lienhe");
         });
     }
 

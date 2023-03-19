@@ -12,19 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chuyenbay', function (Blueprint $table) {
-            $table -> string("idchuyenbay")->primary();
-            $table -> string("idmaybay",255);
-            $table -> string("idtuyenbay",255);
+            $table->id();
+            $table->foreignId('idmaybay')->constrained('maybay')->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table -> integer("idtuyenbay")->unsigned();
             $table -> string("ngaydi",255);
             $table -> string("ngayden",255);
             $table -> string("trangthai",255);
             $table -> string("quangduong",255);
-            $table -> string("sanbaydi",10);
-            $table -> string("sanbayden",255);
+            $table->foreignId('sanbaydi')->constrained('sanbay')->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('sanbayden')->constrained('sanbay')->onUpdate('cascade')
+                ->onDelete('cascade');
+
             $table->timestamps();
-            $table->foreign("idmaybay")->references("idmaybay")->on("maybay");
-            $table->foreign("sanbaydi")->references("idsanbay")->on("sanbay");
-            $table->foreign("sanbayden")->references("idsanbay")->on("sanbay");
         });
     }
 

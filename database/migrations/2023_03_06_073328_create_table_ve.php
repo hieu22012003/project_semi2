@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ve', function (Blueprint $table) {
-            $table -> string("mave")->primary();
-            $table -> string("userid");
-            $table -> string("idchuyenbay");
+            $table->id();
+            $table->foreignId('userid')->constrained('users')->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('idchuyenbay')->constrained('chuyenbay')->onUpdate('cascade')
+                ->onDelete('cascade');
             $table -> date("ngaydatve");
             $table -> string("trangthai",255);
             $table -> decimal("tongtien",45);
             $table -> string("vitringoi",255);
             $table -> decimal("giamgia",45);
             $table->timestamps();
-            $table->foreign("userid")->references("userid")->on("users");
-            $table->foreign("idchuyenbay")->references("idchuyenbay")->on("chuyenbay");
         });
     }
 

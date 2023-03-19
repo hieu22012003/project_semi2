@@ -24,24 +24,24 @@
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Sửa </h3>
+                    <form role="form" method="post" action="{{url("/cskh/edit",['cskh'=>$cskh->userid])}}">
+                        @csrf
+                        @method("put")
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="">ID User</label>
+                                <input disabled type="text" class="form-control" name="userid" id="userid" value="{{$cskh->userid}}" placeholder="ID User">
+                            </div>
+                            <div class="form-group">
+                                <label for="">ID Liên hệ</label>
+                                <input type="text" class="form-control" name="idlienhe" id="idlienhe"  value="{{$cskh->idlienhe}}" placeholder="ID Liên hệ">
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
-                <form role="form" method="post" action="{{url("/cskh/edit",['cskh'=>$cskh->iduser])}}">
-                    @csrf
-                    @method("put")
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="">ID User</label>
-                            <input disabled type="text" class="form-control" name="iduser" id="iduser" value="{{$cskh->iduser}}" placeholder="ID User">
-                        </div>
-                        <div class="form-group">
-                            <label for="">ID Liên hệ</label>
-                            <input type="text" class="form-control" name="idlienhe" id="idlienhe"  value="{{$cskh->idlienhe}}" placeholder="ID Liên hệ">
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
             </div>
         </div>
     </section>

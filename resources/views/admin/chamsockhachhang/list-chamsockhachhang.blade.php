@@ -51,14 +51,14 @@
                                 <tbody>
                                 @foreach($cskh as $item)
                                     <tr>
-                                        <td>{{$item->iduser}}</td>
+                                        <td>{{$item->userid}}</td>
                                         <td>{{$item->idlienhe}}</td>
-                                        {{--                                        <td><a href="{{url("/cskh/edit",['iduser'=>$item->iduser])}}" class="btn btn-outline-info">+</a></td>--}}
+                                        {{--                                        <td><a href="{{url("/cskh/edit",['userid'=>$item->userid])}}" class="btn btn-outline-info">+</a></td>--}}
                                         {{--                                        <td>--}}
-                                        {{--                                            <form action="{{url("/cskh/delete",['iduser'=>$item->iduser])}}" method="post">--}}
+                                        {{--                                            <form action="{{url("/cskh/delete",['userid'=>$item->userid])}}" method="post">--}}
                                         {{--                                                @csrf--}}
                                         {{--                                                @method("delete")--}}
-                                        {{--                                                <button type="submit" onclick="return confirm('Xóa Hóa Đơn {{$item->iduser}} ?')" class="btn btn-outline-danger">-</button>--}}
+                                        {{--                                                <button type="submit" onclick="return confirm('Xóa Hóa Đơn {{$item->userid}} ?')" class="btn btn-outline-danger">-</button>--}}
                                         {{--                                            </form>--}}
                                         {{--                                        </td>--}}
                                     </tr>

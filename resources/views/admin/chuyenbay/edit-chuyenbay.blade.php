@@ -58,21 +58,21 @@
                         </div>
                         <div class="form-group">
                             <label for="">Giá vé thường</label>
-                            <input type="text" class="form-control" name="giavethuong" id="giavethuong"  value="{{$chuyenbay->giavethuong}}" placeholder="Giá $">
+                            <input type="number" class="form-control" name="giavethuong" id="giavethuong"  value="{{$chuyenbay->giavethuong}}" placeholder="Giá $">
                             @error("giavethuong")
                             <p class="text-danger">{{$message}}</p>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="">Giá vé vip</label>
-                            <input type="text" class="form-control" name="giavevip" id="giavevip"  value="{{$chuyenbay->giavevip}}" placeholder="Giá $">
+                            <input type="number" class="form-control" name="giavevip" id="giavevip"  value="{{$chuyenbay->giavevip}}" placeholder="Giá $">
                             @error("giavevip")
                             <p class="text-danger">{{$message}}</p>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="">Quãng đường</label>
-                            <input type="text" class="form-control" name="quangduong" id="quangduong"  value="{{$chuyenbay->quangduong}}" placeholder="Quãng đường">
+                            <input type="number" class="form-control" name="quangduong" id="quangduong"  value="{{$chuyenbay->quangduong}}" placeholder="Quãng đường">
                             @error("quangduong")
                             <p class="text-danger">{{$message}}</p>
                             @enderror

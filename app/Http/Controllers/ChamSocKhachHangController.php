@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 class ChamSocKhachHangController  extends Controller
 {
     public function all(Request  $request){
-        $paraUSER = $request->get("iduser");
+        $paraUSER = $request->get("userid");
         $paraLIENHE = $request->get("idlienhe");
-        $cskh= ChamSocKhachHang::IDUSER($paraUSER)->IDLIENHE($paraLIENHE)->simplePaginate(10);
+        $cskh= ChamSocKhachHang::userid($paraUSER)->IDLIENHE($paraLIENHE)->simplePaginate(10);
         return view ("admin.chamsockhachhang.list-chamsockhachhang",[
             "cskh"=>$cskh,
 
@@ -30,35 +30,35 @@ class ChamSocKhachHangController  extends Controller
     }
     public function create(Request  $request){
         $request ->validate([
-            'iduser'=>'required',
+            'userid'=>'required',
             'idlienhe' => 'required',
         ],[
             'required'=>"Vui lòng nhập thông tin"
         ]);
         chamsockhachhang::create([
-            "iduser"=>$request->get("iduser"),
+            "userid"=>$request->get("userid"),
             "idlienhe"=>$request->get("idlienhe"),
         ]);
         return redirect()->to("/chamsockhachhang/list");
     }
-    public function edit($iduser){
-        $cskh = chamsockhachhang::find($iduser);
+    public function edit($userid){
+        $cskh = chamsockhachhang::find($userid);
         return view('admin.cskh.edit-cskh',[
             'chamsockhachhang'=> $cskh
         ]);
     }
-    public function update(Request $request, $iduser ){
-        $cskh = chamsockhachhang::find($iduser);
+    public function update(Request $request, $userid ){
+        $cskh = chamsockhachhang::find($userid);
         $cskh -> update([
-            "iduser"=>$request->get("iduser"),
+            "userid"=>$request->get("userid"),
             "idlienhe"=>$request->get("idlienhe"),
         ]);
         return redirect()->to("/chamsockhachhang/list")->with("success","Cập nhật thành công");
     }
 
-    public function delete($iduser){
+    public function delete($userid){
         try {
-            $cskh = chamsockhachhang::find($iduser);
+            $cskh = chamsockhachhang::find($userid);
             $cskh->delete();
             return redirect()->to("/chamsockhachhang/list")->with("success","Xóa thành công");
         }catch (\Exception $e){

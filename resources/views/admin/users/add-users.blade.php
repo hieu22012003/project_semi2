@@ -67,7 +67,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Số điện thoại</label>
-                            <input type="text" class="form-control" name="sdt" id="sdt" value="{{old("sdt")}}" placeholder="Số điện thoại">
+                            <input type="number" class="form-control" name="sdt" id="sdt" value="{{old("sdt")}}" placeholder="Số điện thoại">
                             @error("sdt")
                             <p class="text-danger">{{$message}}</p>
                             @enderror
@@ -81,7 +81,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Dặm bay</label>
-                            <input type="text" class="form-control" name="dambay" id="dambay" value="{{old("dambay")}}" placeholder="Dặm bay">
+                            <input type="number" class="form-control" name="dambay" id="dambay" value="{{old("dambay")}}" placeholder="Dặm bay">
                             @error("dambay")
                             <p class="text-danger">{{$message}}</p>
                             @enderror

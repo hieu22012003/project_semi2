@@ -31,12 +31,12 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="">ID User</label>
-                            <select name="iduser" class="form-control">
+                            <select name="userid" class="form-control">
                                 @foreach($users as $item)
-                                    <option @if(old("iduser") == $item->id) selected @endif value="{{$item->id}}">{{$item->id}}</option>
+                                    <option @if(old("userid") == $item->id) selected @endif value="{{$item->id}}">{{$item->id}}</option>
                                 @endforeach
                             </select>
-                            @error("iduser")
+                            @error("userid")
                             <p class="text-danger">{{$message}}</p>
                             @enderror
                         </div>

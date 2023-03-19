@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('giave', function (Blueprint $table) {
-            $table -> string("idgiave")->primary();
-            $table -> string("idchuyenbay",255);
+            $table->id();
+            $table->foreignId('idchuyenbay')->constrained('chuyenbay')->onUpdate('cascade')
+                ->onDelete('cascade');
             $table -> string("vethuong",255);
             $table -> string("vevip",255);
             $table->timestamps();
-            $table->foreign("idchuyenbay")->references("idchuyenbay")->on("chuyenbay");
         });
     }
 

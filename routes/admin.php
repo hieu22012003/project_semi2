@@ -47,9 +47,9 @@ Route::group(['prefix'=>"chamsockhachhang"],function (){
     Route::get("/list",[\App\Http\Controllers\ChamSocKhachHangController::class,"all"]);
     Route::get("/create",[\App\Http\Controllers\ChamSocKhachHangController::class,"form"]);
     Route::post("/create",[\App\Http\Controllers\ChamSocKhachHangController::class,"create"]);
-    Route::get("/edit/{iduser}",[\App\Http\Controllers\ChamSocKhachHangController::class,"edit"]);
-    Route::put("/edit/{iduser}",[\App\Http\Controllers\ChamSocKhachHangController::class,"update"]);
-    Route::delete("/delete/{iduser}",[\App\Http\Controllers\ChamSocKhachHangController::class,"delete"]);
+    Route::get("/edit/{userid}",[\App\Http\Controllers\ChamSocKhachHangController::class,"edit"]);
+    Route::put("/edit/{userid}",[\App\Http\Controllers\ChamSocKhachHangController::class,"update"]);
+    Route::delete("/delete/{userid}",[\App\Http\Controllers\ChamSocKhachHangController::class,"delete"]);
 });
 
 //maybay
