@@ -33,7 +33,7 @@
                             <label for="exampleInputEmail1">Tên máy bay</label>
                             <select name="idmaybay" class="form-control">
                                 @foreach($maybay as $item)
-                                    <option  @if(old('idmaybay') == $item->idmaybay) selected @endif value="{{$item->idmaybay}}"> {{$item->tenmaybay}} </option>
+                                    <option  @if(old('idmaybay') == $item->id) selected @endif value="{{$item->id}}"> {{$item->tenmaybay}} </option>
                                 @endforeach
                             </select>
                         </div>
@@ -95,7 +95,7 @@
                             <label for="exampleInputEmail1">Nơi đi</label>
                             <select name="sanbaydi" class="form-control">
                                 @foreach($sanbay as $item)
-                                    <option  @if(old('idsanbay') == $item->idsanbay) selected @endif value="{{$item->idsanbay}}"> {{$item->thanhpho}} </option>
+                                    <option  @if(old('sanbaydi') == $item->id) selected @endif value="{{$item->id}}"> {{$item->thanhpho}} </option>
                                 @endforeach
                             </select>
                         </div>
@@ -103,7 +103,7 @@
                             <label for="exampleInputEmail1">Nơi đến</label>
                             <select name="sanbayden" class="form-control">
                                 @foreach($sanbay as $item)
-                                    <option  @if(old('idsanbay') == $item->idsanbay) selected @endif value="{{$item->idsanbay}}"> {{$item->thanhpho}} </option>
+                                    <option  @if(old('sanbayden') == $item->id) selected @endif value="{{$item->id}}"> {{$item->thanhpho}} </option>
                                 @endforeach
                             </select>
                             @error("sanbayden")
