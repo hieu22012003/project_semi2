@@ -25,7 +25,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Edit chuyến bay</h3>
                 </div>
-                <form role="form" method="post" action="{{url("/chuyenbay/edit",['idchuyenbay'=>$chuyenbay->idchuyenbay])}}">
+                <form role="form" method="post" action="{{url("/chuyenbay/edit",['id'=>$chuyenbay->id])}}">
                     @csrf
                     @method("put")
                     <div class="card-body">
@@ -33,7 +33,7 @@
                             <label for="exampleInputEmail1">Tên máy bay</label>
                             <select name="idmaybay" class="form-control">
                                 @foreach($maybay as $item)
-                                    <option @if($chuyenbay->idmaybay == $item->idmaybay) selected @endif value="{{$item->idmaybay}}"> {{$item->tenmaybay}} </option>
+                                    <option @if($chuyenbay->idmaybay == $item->id) selected @endif value="{{$item->id}}"> {{$item->tenmaybay}} </option>
                                 @endforeach
                             </select>
                         </div>
@@ -81,7 +81,7 @@
                             <label for="exampleInputEmail1">From</label>
                             <select name="sanbaydi" class="form-control">
                                 @foreach($sanbay as $item)
-                                    <option @if($chuyenbay->sanbaydi == $item->idsanbay) selected @endif value="{{$item->idsanbay}}"> {{$item->thanhpho}} </option>
+                                    <option @if($chuyenbay->sanbaydi == $item->id) selected @endif value="{{$item->id}}"> {{$item->thanhpho}} </option>
                                 @endforeach
                             </select>
                         </div>
@@ -89,7 +89,7 @@
                             <label for="exampleInputEmail1">To</label>
                             <select name="sanbayden" class="form-control">
                                 @foreach($sanbay as $item)
-                                    <option @if($chuyenbay->sanbayden == $item->idsanbay) selected @endif value="{{$item->idsanbay}}"> {{$item->thanhpho}} </option>
+                                    <option @if($chuyenbay->sanbayden == $item->id) selected @endif value="{{$item->id}}"> {{$item->thanhpho}} </option>
                                 @endforeach
                             </select>
                             @error("sanbayden")

@@ -31,13 +31,13 @@
                                         <select name="sanbaydi" class="form-control float-right">
                                             <option value="">--Từ--</option>
                                             @foreach($sanbay as $item)
-                                                <option @if(app("request")->input("idsanbay")==$item->idsanbay)  selected @endif value="{{$item->idsanbay}}">{{$item->thanhpho}}</option>
+                                                <option @if(app("request")->input("id")==$item->id)  selected @endif value="{{$item->id}}">{{$item->thanhpho}}</option>
                                             @endforeach
                                         </select>
                                         <select name="sanbayden" class="form-control float-right">
                                             <option value="">--Đến--</option>
                                             @foreach($sanbay as $item)
-                                                <option @if(app("request")->input("idsanbay")==$item->idsanbay)  selected @endif value="{{$item->idsanbay}}">{{$item->thanhpho}}</option>
+                                                <option @if(app("request")->input("id")==$item->idsanbay)  selected @endif value="{{$item->id}}">{{$item->thanhpho}}</option>
                                             @endforeach
                                         </select>
                                         <input type="date" value="{{app("request")->input("ngaydi")}}"  name="ngaydi" class="form-control float-right" >
@@ -75,9 +75,9 @@
                                         <td>{{$item->ngayden}}</td>
                                         <td>{{$item->trangthai}}</td>
                                         <td>{{$item->quangduong}}</td>
-                                        <td><a href="{{url("/chuyenbay/edit",['idchuyenbay'=>$item->idchuyenbay])}}" class="btn btn-outline-info">+</a></td>
+                                        <td><a href="{{url("/chuyenbay/edit",['id'=>$item->id])}}" class="btn btn-outline-info">+</a></td>
                                         <td>
-                                            <form action="{{url("/chuyenbay/delete",['idchuyenbay'=>$item->idchuyenbay])}}" method="post">
+                                            <form action="{{url("/chuyenbay/delete",['id'=>$item->id])}}" method="post">
                                                 @csrf
                                                 @method("delete")
                                                 <button type="submit" onclick="return confirm('Xóa Chuyến Bay {{$item->tenchuyenbay}} ?')" class="btn btn-outline-danger">-</button>

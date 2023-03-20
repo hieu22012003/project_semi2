@@ -38,14 +38,14 @@ class MayBayController extends Controller
         ]);
         return redirect()->to("/maybay/list");
     }
-    public function edit($idmaybay){
-        $maybay = MayBay::find($idmaybay);;
+    public function edit($id){
+        $maybay = MayBay::find($id);;
         return view('admin.maybay.edit-maybay',[
             'maybay'=> $maybay
         ]);
     }
-    public function update(Request  $request,$idmaybay){
-        $maybay = MayBay::find($idmaybay);
+    public function update(Request  $request,$id){
+        $maybay = MayBay::find($id);
         $request ->validate([
             'hangmaybay' => 'required',
             'tenmaybay' => 'required',
@@ -64,9 +64,9 @@ class MayBayController extends Controller
         ]);
         return redirect()->to("/maybay/list")->with("success","Cập nhật máy bay thành công");
     }
-    public function delete($idmaybay){
+    public function delete($id){
         try {
-            $maybay = MayBay::find($idmaybay);
+            $maybay = MayBay::find($id);
             $maybay -> delete();
             return redirect()->to("/maybay/list")->with("success","Xóa hóa đơn thành công");
         }catch (\Exception $e){

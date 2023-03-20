@@ -25,7 +25,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Edit sân bay</h3>
                 </div>
-                <form role="form" method="post" action="{{url("/sanbay/edit",['idsanbay'=>$sanbay->idsanbay])}}">
+                <form role="form" method="post" action="{{url("/sanbay/edit",['id'=>$sanbay->id])}}">
                     @csrf
                     @method("put")
                     <div class="card-body">

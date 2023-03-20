@@ -31,29 +31,29 @@ class SanBayController extends Controller
         return redirect()->to("/sanbay/list");
 
     }
-    public function edit($idsanbay){
-        $sanbay = SanBay::find($idsanbay);
+    public function edit($id){
+        $sanbay = SanBay::find($id);
         return view('admin.sanbay.edit-sanbay',[
             'sanbay'=> $sanbay
         ]);
     }
-    public function update(Request  $request,$idsanbay){
+    public function update(Request  $request,$id){
         $request ->validate([
             'tensanbay' => 'required',
             'thanhpho' => 'required',
         ],[
             'required'=>"Vui lòng nhập thông tin"
         ]);
-        $sanbay = SanBay::find($idsanbay);
+        $sanbay = SanBay::find($id);
         $sanbay -> update([
             "tensanbay"=>$request->get("tensanbay"),
             "thanhpho"=>$request->get("thanhpho"),
         ]);
         return redirect()->to("/sanbay/list")->with("success","Cập nhật sân bay thành công");
     }
-    public function delete($idsanbay){
+    public function delete($id){
         try {
-            $sanbay = SanBay::find($idsanbay);
+            $sanbay = SanBay::find($id);
             $sanbay->delete();
             return redirect()->to("/sanbay/list")->with("success","Xóa hóa đơn thành công");
         }catch (\Exception $e){

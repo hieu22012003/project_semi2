@@ -12,7 +12,7 @@ class VeController extends  Controller
     public function all(Request  $request){
     $users = User::all();
     $chuyenbay = Chuyenbay::all();
-    $paraID = $request->get("idkh");
+    $paraID = $request->get("userid");
     $ve= Ve::ID($paraID)->simplePaginate(10);
     return view ("admin.ve.list-ve",[
         "ve"=>$ve,
@@ -32,7 +32,7 @@ class VeController extends  Controller
 
     public function create(Request  $request){
     $request ->validate([
-        'idkh'=>'required|string',
+        'userid'=>'required|string',
         'idchuyenbay' => 'required',
         'ngaydatve' => 'required',
         'trangthai' => 'required',
@@ -44,7 +44,7 @@ class VeController extends  Controller
         'required'=>"Vui lòng nhập thông tin"
     ]);
     Ve::create([
-        "idkh"=>$request->get("idkh"),
+        "userid"=>$request->get("userid"),
         "idchuyenbay"=>$request->get("idchuyenbay"),
         "ngaydatve"=>$request->get("ngaydatve"),
         "trangthai"=>$request->get("trangthai"),

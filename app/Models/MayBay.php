@@ -8,7 +8,7 @@ class MayBay extends Model
 {
     use HasFactory;
     protected $table = 'maybay' ;
-    protected $primaryKey = 'idmaybay' ;
+    protected $primaryKey = 'id' ;
     protected $keyType='string';
     protected $fillable = [
         "hangmaybay",

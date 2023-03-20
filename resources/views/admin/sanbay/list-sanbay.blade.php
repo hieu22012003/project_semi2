@@ -52,9 +52,9 @@
                                     <tr>
                                         <td>{{$item->tensanbay}}</td>
                                         <td>{{$item->thanhpho}}</td>
-                                        <td><a href="{{url("/sanbay/edit",['idsanbay'=>$item->idsanbay])}}" class="btn btn-outline-info">+</a></td>
+                                        <td><a href="{{url("/sanbay/edit",['id'=>$item->id])}}" class="btn btn-outline-info">+</a></td>
                                         <td>
-                                            <form action="{{url("/sanbay/delete",['idsanbay'=>$item->idsanbay])}}" method="post">
+                                            <form action="{{url("/sanbay/delete",['id'=>$item->id])}}" method="post">
                                                 @csrf
                                                 @method("delete")
                                                 <button type="submit" onclick="return confirm('Xóa Sân Bay {{$item->tensanbay}} ?')" class="btn btn-outline-danger">-</button>

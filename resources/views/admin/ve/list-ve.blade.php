@@ -28,11 +28,11 @@
                             <form method="get" action="{{url("/admin/ve/list")}}">
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm" >
-                                        <input type="text" value="{{app("request")->input("idkh")}}"  name="idkh" class="form-control float-right" placeholder="Search by ID khách hàng">
+                                        <input type="text" value="{{app("request")->input("userid")}}"  name="userid" class="form-control float-right" placeholder="Search by ID khách hàng">
                                         <select name="Brand" class="form-control float-right">
                                             <option value="">--Select ID--</option>
                                             @foreach($ve as $item)
-                                                <option @if(app("request")->input("Brand")==$item->idkh)  selected @endif value="{{$item->idkh}}">{{$item->idkh}}</option>
+                                                <option @if(app("request")->input("Brand")==$item->userid)  selected @endif value="{{$item->userid}}">{{$item->userid}}</option>
                                             @endforeach
                                         </select>
                                         <div class="input-group-append">

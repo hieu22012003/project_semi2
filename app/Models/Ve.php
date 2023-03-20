@@ -11,7 +11,7 @@ class Ve extends Model
     protected $primaryKey = 'id' ;
     protected $keyType='string';
     protected $fillable = [
-        "idkh",
+        "userid",
         "idchuyenbay",
         "ngaydatve",
         "trangthai",
@@ -23,13 +23,13 @@ class Ve extends Model
     ];
     public  function  scopeID($query,$ID=''){
         if($ID != null && $ID != ''){
-            return $query->where("idkh","like","%".$ID."%");
+            return $query->where("userid","like","%".$ID."%");
         }
         return $query;
     }
 
     public function users(){
-        return $this->belongsTo(User::class,'idkh','sdt');
+        return $this->belongsTo(User::class,'userid','sdt');
     }
 
     public function sanbay1(){

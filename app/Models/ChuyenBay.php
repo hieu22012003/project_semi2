@@ -8,7 +8,7 @@ class ChuyenBay extends Model
 {
     use HasFactory;
     protected $table = 'chuyenbay' ;
-    protected $primaryKey = 'idchuyenbay' ;
+    protected $primaryKey = 'id' ;
     protected $keyType='string';
     protected $fillable = [
         "idmaybay",
@@ -57,13 +57,13 @@ class ChuyenBay extends Model
 
 
     public function sanbay1(){
-        return $this->belongsTo(SanBay::class,"sanbaydi","idsanbay");
+        return $this->belongsTo(SanBay::class,"sanbaydi","id");
     }
     public function sanbay2(){
-        return $this->belongsTo(SanBay::class,"sanbayden","idsanbay");
+        return $this->belongsTo(SanBay::class,"sanbayden","id");
     }
     public function maybay(){
-        return $this->belongsTo(MayBay::class,"idmaybay","idmaybay");
+        return $this->belongsTo(MayBay::class,"idmaybay","id");
     }
 
 }

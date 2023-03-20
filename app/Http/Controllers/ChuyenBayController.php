@@ -34,7 +34,7 @@ class ChuyenBayController extends Controller
     }
 
     public function all1(Request $request){
-        $result = DB::select("SELECT cb.idchuyenbay,
+        $result = DB::select("SELECT cb.id,
 CASE
 	WHEN `temp`.ghethuongUsed IS NULL THEN mb.ghethuong
    	ELSE mb.ghethuong- `temp`.ghethuongUsed
@@ -46,19 +46,19 @@ END as `ghevipEmpty`
 FROM `chuyenbay` cb
 left JOIN maybay mb on mb.idmaybay = cb.idmaybay
 left JOIN (
-    SELECT cb.idchuyenbay, SUM(hd.ghethuong) as `ghethuongUsed`, SUM(hd.ghevip) as `ghevipUsed` FROM `chuyenbay` cb
-    left JOIN ve hd on hd.idchuyenbay = cb.idchuyenbay
+    SELECT cb.id, SUM(hd.ghethuong) as `ghethuongUsed`, SUM(hd.ghevip) as `ghevipUsed` FROM `chuyenbay` cb
+    left JOIN ve hd on hd.id = cb.id
     WHERE hd.trangthai LIKE 'DONE'
-    GROUP BY cb.idchuyenbay
-) `temp` on `temp`.idchuyenbay = cb.idchuyenbay
+    GROUP BY cb.id
+) `temp` on `temp`.id = cb.id
 WHERE (`temp`.ghethuongUsed < mb.ghethuong OR `temp`.ghevipUsed < mb.ghevip OR `temp`.ghethuongUsed IS NULL OR `temp`.ghevipUsed IS NULL )
-GROUP BY cb.idchuyenbay, ghevipEmpty, ghethuongEmpty
+GROUP BY cb.id, ghevipEmpty, ghethuongEmpty
 ");
 //      dd(array_map(function ($value) {
-//          return $value->idchuyenbay;
+//          return $value->id;
 //      }, $result));
-        $chuyenbays =  ChuyenBay::all()->whereIn('idchuyenbay', array_map(function ($value) {
-            return $value->idchuyenbay;
+        $chuyenbays =  ChuyenBay::all()->whereIn('id', array_map(function ($value) {
+            return $value->id;
         }, $result))->toArray();
         $result = json_decode(json_encode($result),true);
         for($i=0 ;$i< count($result);$i++){
@@ -67,7 +67,7 @@ GROUP BY cb.idchuyenbay, ghevipEmpty, ghethuongEmpty
         }
 //        $finalResult = array_map(function ($chuyenbay) use ($result) {
 //            dd($chuyenbay, $result);
-//            $a = array_search($chuyenbay['idchuyenbay'], array_column($result, ''));
+//            $a = array_search($chuyenbay['id'], array_column($result, ''));
 //            dd($a);
 //        }, $chuyenbays);
 
@@ -148,8 +148,8 @@ GROUP BY cb.idchuyenbay, ghevipEmpty, ghethuongEmpty
 
         return redirect()->to("/chuyenbay/list");
     }
-    public function edit($idchuyenbay){
-        $chuyenbay = ChuyenBay::find($idchuyenbay);
+    public function edit($id){
+        $chuyenbay = ChuyenBay::find($id);
         $maybay = MayBay::all();
         $sanbay = SanBay::all();
         return view('admin.chuyenbay.edit-chuyenbay',[
@@ -158,7 +158,7 @@ GROUP BY cb.idchuyenbay, ghevipEmpty, ghethuongEmpty
             'sanbay' => $sanbay
         ]);
     }
-    public function update(Request  $request,$idchuyenbay){
+    public function update(Request  $request,$id){
         $request ->validate([
             'idmaybay' => 'required',
             'ngaydi' => 'required',
@@ -174,7 +174,7 @@ GROUP BY cb.idchuyenbay, ghevipEmpty, ghethuongEmpty
             'different'=>"Phải khác trường ở trên",
             'integer'=>"Phải là số",
         ]);
-        $chuyenbay = ChuyenBay::find($idchuyenbay);
+        $chuyenbay = ChuyenBay::find($id);
         $chuyenbay -> update([
             "idmaybay"=>$request->get("idmaybay"),
             "ngaydi"=>$request->get("ngaydi"),
@@ -189,9 +189,9 @@ GROUP BY cb.idchuyenbay, ghevipEmpty, ghethuongEmpty
         ]);
         return redirect()->to("/chuyenbay/list")->with("success","Cập nhật chuyến bay thành công");
     }
-    public function delete($idchuyenbay){
+    public function delete($id){
         try {
-            $chuyenbay = ChuyenBay::find($idchuyenbay);
+            $chuyenbay = ChuyenBay::find($id);
             $chuyenbay -> delete();
             return redirect()->to("/chuyenbay/list")->with("success","Xóa chuyển bay thành công");
         }catch (\Exception $e){

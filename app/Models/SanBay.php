@@ -9,7 +9,7 @@ class SanBay extends Model
     use HasFactory;
 
     protected $table = 'sanbay';
-    protected $primaryKey = 'idsanbay';
+    protected $primaryKey = 'id';
     protected $keyType = 'string';
     protected $fillable = [
         "tensanbay",
